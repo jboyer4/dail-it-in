@@ -1,0 +1,30 @@
+[
+    {
+        "id": "79289c06-f5d7-48af-a681-10f8649214e2",
+        "grindSize": "11",
+        "dose": 19.0,
+        "yield": 41.0,
+        "temperature": 200.0,
+        "time": 25.0,
+        "notes": "Stone fruit"
+    },
+    {
+        "id": "4ca76f91-42f6-492a-aedc-fb37e553136c",
+        "grindSize": "12",
+        "dose": 20.0,
+        "yield": 41.5,
+        "temperature": 201.0,
+        "time": 26.0,
+        "notes": "Chocolaty"
+    },
+    {
+        "id": "41ba9080-fb8a-445e-82b7-079458c7251d",
+        "grindSize": "13",
+        "dose": 21.0,
+        "yield": 43.0,
+        "temperature": 210.0,
+        "time": 35.0,
+        "notes": ""
+    },
+
+]
