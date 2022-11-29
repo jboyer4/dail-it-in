@@ -8,11 +8,11 @@ import SwiftUI
 
 struct TimerView: View {
     @Binding var savedTime: Double
-    @SceneStorage("TimerView.isTimerRunning") var isTimerRunning = false
+    @State var isTimerRunning = false
     @State private var startTime =  Date()
     @SceneStorage("TimerView.timerString") private var timerString = "0.0"
-    @SceneStorage("TimerView.curTimerValue") private var curTimerValue = 0.0
-    @SceneStorage("TimerView.prevCount") private var prevCount = 0.0
+    @State private var curTimerValue = 0.0
+    @State private var prevCount = 0.0
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {

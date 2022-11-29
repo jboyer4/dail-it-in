@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SavePage: View {
     @ObservedObject var currentBrew: BrewModel
-    
+    @State private var showPopup: Bool = false
+    @State private var alertText: String = ""
     func getRatio() -> Text{
         if let yieldNum = Double(currentBrew.yield.value) {
             if let doseNum = Double(currentBrew.dose.value){
@@ -86,17 +87,28 @@ struct SavePage: View {
                     if let tempNum = Double(currentBrew.dose.value){
                         let toSave = BrewStorageModel(id: UUID(), grindSize: currentBrew.grindSize, dose: doseNum, yield: yieldNum, temperature: tempNum, time: currentBrew.time, notes: currentBrew.notes)
                         writeSave(toSave, filename: "savedBrews.json")
+                        alertText = "Saved"
+                        showPopup = true
+                    } else{
+                        alertText = "Temperature must be a number"
+                        showPopup = true
                     }
-                    else{
-//                        .alert(title: Text("Temperature must be a number"))
-                    }
+                } else{
+                    alertText = "Dose must be a number"
+                    showPopup = true
                 }
+            } else{
+                alertText = "Yield must be a number"
+                showPopup = true
             }
-
-                
-            }
+        }.alert(isPresented: $showPopup){
+            Alert(
+                title: Text(alertText)
+            )
         }
     }
+}
+
 
 
 
