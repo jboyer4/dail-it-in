@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Entrypoint: View {
+
     var body: some View {
         NavigationView{
             VStack {
@@ -15,8 +16,7 @@ struct Entrypoint: View {
                     .resizable()
                     .scaledToFit()
                     .frame(alignment: .top)
-                    .ignoresSafeArea()
-                
+                Spacer()
                 NavigationLink(destination: BrewPage()){
                         Text("Let's Brew")
                     }
@@ -25,7 +25,7 @@ struct Entrypoint: View {
                     .foregroundColor(.white)
                     .font(.headline)
                     .cornerRadius(10)
-                
+
                 NavigationLink(destination: SavedList()){
                         Text("Saved Cups")
                     }
@@ -38,11 +38,13 @@ struct Entrypoint: View {
             }
 
         }
+        .navigationViewStyle(.stack)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Entrypoint()
+.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }

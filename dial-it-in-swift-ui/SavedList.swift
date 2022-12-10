@@ -10,9 +10,11 @@ import SwiftUI
 struct SavedList: View {
     var body: some View {
         List(savedBrews){brew in
-
+            NavigationLink {
+                DetailView(brew: brew)
+            } label: {
                 SavedRow(brew: brew)
-
+            }
         }
     }
 }

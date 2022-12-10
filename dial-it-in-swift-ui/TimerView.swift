@@ -49,11 +49,12 @@ struct TimerView: View {
             .onTapGesture {
                 if isTimerRunning {
                     self.stopTimer()
+                    savedTime = curTimerValue
                 } else {
                     startTime = Date()
                     self.startTimer()
                 }
-                savedTime = curTimerValue
+
                 isTimerRunning.toggle()
             }
             .padding()
@@ -64,6 +65,7 @@ struct TimerView: View {
                     timerString = "0.0"
                     curTimerValue = 0.0
                     prevCount = 0.0
+                    savedTime = 0.0
                 }
         }
     }

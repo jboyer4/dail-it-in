@@ -25,70 +25,87 @@ struct SavePage: View {
                 }
             }
         }
-            return Text("Enter a numeric non-zero value for the dose and yield")
+            return Text("Enter your yield")
             .foregroundColor(.orange)
-
     }
     
     var body: some View {
+
         VStack{
-            HStack{
-                Text("Grind Size:")
-                    .foregroundColor(.white)
-                Text(currentBrew.grindSize)
-                    .foregroundColor(.white)
-                Spacer()
+            Image("shots")
+                .resizable()
+                .scaledToFit()
+                .frame(minWidth: .infinity, alignment: .top)
+                .padding([.bottom], 20)
+
+            VStack{
+                HStack{
+                    Text("Name:")
+                        .foregroundColor(.white)
+                    TextField("Enter a name", text: $currentBrew.name)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Grind Size:")
+                        .foregroundColor(.white)
+                    Text(currentBrew.grindSize)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Dose:")
+                        .foregroundColor(.white)
+                    Text(currentBrew.dose.value)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Yield:")
+                        .foregroundColor(.white)
+                    TextField("Extracted shot in grams", text: $currentBrew.yield.value)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Ratio:")
+                        .foregroundColor(.white)
+                    getRatio()
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Temperature:")
+                        .foregroundColor(.white)
+                    Text(currentBrew.temperature.value)
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Time:")
+                        .foregroundColor(.white)
+                    Text(String(format: "%.2f", currentBrew.time))
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
-            HStack{
-                Text("Dose:")
-                    .foregroundColor(.white)
-                Text(currentBrew.dose.value)
-                    .foregroundColor(.white)
-                Spacer()
-            }
-            .padding()
-            HStack{
-                Text("Yield:")
-                    .foregroundColor(.white)
-                TextField("Extracted shot in grams", text: $currentBrew.yield.value)
-                    .foregroundColor(.white)
-                Spacer()
-            }
-            .padding()
-            HStack{
-                Text("Ratio:")
-                    .foregroundColor(.white)
-                getRatio()
-                Spacer()
-            }
-            .padding()
-            HStack{
-                Text("Temperature:")
-                    .foregroundColor(.white)
-                Text(currentBrew.temperature.value)
-                    .foregroundColor(.white)
-                Spacer()
-            }
-            .padding()
-            HStack{
-                Text("Time:")
-                    .foregroundColor(.white)
-                Text(String(format: "%.2f", currentBrew.time))
-                    .foregroundColor(.white)
-                Spacer()
-            }
-            .padding()
-        }
-        .background(Color.dialBlue)
+            .background(Color.dialBlue)
+        
         Button("Save") {
             if let yieldNum = Double(currentBrew.yield.value) {
                 if let doseNum = Double(currentBrew.dose.value){
                     if let tempNum = Double(currentBrew.dose.value){
-                        let toSave = BrewStorageModel(id: UUID(), grindSize: currentBrew.grindSize, dose: doseNum, yield: yieldNum, temperature: tempNum, time: currentBrew.time, notes: currentBrew.notes)
+                        let toSave = BrewStorageModel(id: UUID(), name: currentBrew.name, grindSize: currentBrew.grindSize, dose: doseNum, yield: yieldNum, temperature: tempNum, time: currentBrew.time, notes: currentBrew.notes)
                         writeSave(toSave, filename: "savedBrews.json")
                         alertText = "Saved"
                         showPopup = true
+                        currentBrew.clear()
                     } else{
                         alertText = "Temperature must be a number"
                         showPopup = true
@@ -101,11 +118,19 @@ struct SavePage: View {
                 alertText = "Yield must be a number"
                 showPopup = true
             }
-        }.alert(isPresented: $showPopup){
+        }
+        .padding()
+        .padding([.leading, .trailing], 30)
+        .background(Color.dialRed)
+        .foregroundColor(.white)
+        .font(.headline)
+        .cornerRadius(10)
+        .alert(isPresented: $showPopup){
             Alert(
                 title: Text(alertText)
             )
         }
+    }
     }
 }
 

@@ -17,14 +17,9 @@ struct SavedRow: View {
                 .frame(alignment: .top)
                 .frame(maxWidth: 100, maxHeight: 100)
             Spacer()
-            VStack{
-                Text(String(format: "Dose: %.2f g", brew.dose))
-                Text(String(format:"Yield: %.2f g", brew.yield))
-            }
-            VStack{
-                Text(String(format: "Temp: %.2f F", brew.temperature))
-                Text(String(brew.notes))
-            }
+            Text(brew.name)
+                .padding()
+                .frame(alignment: .top)
         }
         .padding()
     }

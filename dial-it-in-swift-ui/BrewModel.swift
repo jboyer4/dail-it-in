@@ -21,7 +21,8 @@ class NumberValidator: ObservableObject{
 
 class BrewModel: ObservableObject{
     @Published var method: String = "Espresso"
-    @Published var grindSize: String = ""
+    @Published var name: String = ""
+    @Published var grindSize: String = "" //Use string here bc even though it is usually a number, it doesn't have to be
     @Published var dose = NumberValidator()
     @Published var yield = NumberValidator()
     @Published var temperature = NumberValidator()
@@ -30,7 +31,19 @@ class BrewModel: ObservableObject{
     
     init(){
         self.method = "Espresso"
+        self.name = ""
         self.grindSize = ""
+        self.dose = NumberValidator()
+        self.yield = NumberValidator()
+        self.temperature = NumberValidator()
+        self.time = 0.0
+        self.notes = ""
+    }
+    
+    public func clear(){
+        self.method = "Espresso"
+        self.grindSize = ""
+        self.name = ""
         self.dose = NumberValidator()
         self.yield = NumberValidator()
         self.temperature = NumberValidator()
@@ -41,15 +54,17 @@ class BrewModel: ObservableObject{
 
 struct BrewStorageModel: Identifiable, Codable{
     let id: UUID
-    var grindSize: String
+    let name: String
+    let grindSize: String
     let dose: Double
     let yield: Double
     let temperature: Double
     let time: Double
     let notes: String
     
-    init(id:UUID = UUID(), grindSize: String, dose: Double, yield: Double, temperature: Double, time: Double, notes: String){
+    init(id:UUID = UUID(), name: String, grindSize: String, dose: Double, yield: Double, temperature: Double, time: Double, notes: String){
         self.id = id
+        self.name = name
         self.grindSize = grindSize
         self.dose = dose
         self.yield = yield

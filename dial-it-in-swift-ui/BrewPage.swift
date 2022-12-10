@@ -20,7 +20,6 @@ struct BrewPage: View {
                     .resizable()
                     .scaledToFit()
                     .frame(alignment: .top)
-                    .ignoresSafeArea()
                 VStack {
                     HStack {
                         Text("Method:")
@@ -74,7 +73,7 @@ struct BrewPage: View {
                             .padding()
                     }
                     .background(.brown)
-                                
+
                     NavigationLink(destination: TimerPageView(currentBrew: currentBrew)){
                             Text("Start Brewing")
                         }
@@ -84,7 +83,6 @@ struct BrewPage: View {
                         .font(.headline)
                         .cornerRadius(10)
                 }
-                Spacer()
             }
         }
 }
