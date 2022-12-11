@@ -10,7 +10,18 @@ import SwiftUI
 struct DetailView: View {
     var brew: BrewStorageModel
     func openShare() -> Void {
-        
+        let recipie = String(
+            "Name: " + brew.name + "\n" +
+            "Grind: " + brew.grindSize + "\n" +
+            String(format: "Dose: %.2f g\n", brew.dose) +
+            String(format: "Yield: %.2f g\n", brew.yield) +
+            String(format: "Temperature: %.2f F\n", brew.temperature) +
+            String(format: "Time: %.2f sec\n", brew.time) +
+            "Notes: " + brew.notes
+        )
+        let view = UIActivityViewController(activityItems: [recipie], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(view, animated: true, completion: nil)
+        //This is deprecated but my computer is too old to run the new iOS version
     }
     
     var body: some View {
@@ -28,11 +39,10 @@ struct DetailView: View {
                         Image(systemName: "square.and.arrow.up")
                     }
                 }
-                .padding([.trailing], 30)
                 .padding([.leading], 10)
-
             }
-
+            .padding([.trailing], 30)
+            
             HStack{
                 VStack{
                     Text(String(format: "Dose: %.2f g", brew.dose))
