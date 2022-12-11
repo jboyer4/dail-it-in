@@ -9,19 +9,30 @@ import SwiftUI
 
 struct DetailView: View {
     var brew: BrewStorageModel
+    func openShare() -> Void {
+        
+    }
+    
     var body: some View {
         VStack{
             HStack{
                 Image("bag")
                     .resizable()
                     .scaledToFit()
-                    .frame(alignment: .top)
-                Text(brew.name)
-                    .font(.title)
-                    .padding(30)
-                Spacer()
+
+                HStack {
+                    Text(brew.name)
+                        .font(.title)
+
+                    Button(action: openShare){
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                }
+                .padding([.trailing], 30)
+                .padding([.leading], 10)
+
             }
-            .frame(alignment: .top)
+
             HStack{
                 VStack{
                     Text(String(format: "Dose: %.2f g", brew.dose))
@@ -32,18 +43,28 @@ struct DetailView: View {
                     Text("Grind size: " + brew.grindSize)
                     Text(String(format: "Temp: %.2f F", brew.temperature))
                 }
+
                 Spacer()
             }
             .padding(30)
+            .foregroundColor(.white)
+            .background(Color.dialBlue)
+            
             HStack {
                 Spacer()
                 Text(String(format: "Time: %.2f sec", brew.time))
             }
+            .padding(20)
+            .foregroundColor(.white)
+            .background(Color.dialRed)
+            
             HStack{
             Text("Notes: " + brew.notes)
-                .padding(30)
+                .padding([.trailing], 30)
             Spacer()
             }
+            .foregroundColor(.white)
+            .background(Color.dialBlue)
 
         }
         Spacer()
