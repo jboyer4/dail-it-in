@@ -25,6 +25,7 @@ struct Entrypoint: View {
                     .foregroundColor(.white)
                     .font(.headline)
                     .cornerRadius(10)
+                    .accessibilityLabel(Text("Create new Recipe"))
 
                 NavigationLink(destination: SavedList()){
                         Text("Saved Cups")
@@ -34,6 +35,7 @@ struct Entrypoint: View {
                     .foregroundColor(.white)
                     .font(.headline)
                     .cornerRadius(10)
+                    .accessibilityLabel(Text("Load a saved Recipie"))
                 Spacer()
             }
 

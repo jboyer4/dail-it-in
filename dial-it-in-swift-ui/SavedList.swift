@@ -14,6 +14,7 @@ struct SavedList: View {
                 DetailView(brew: brew)
             } label: {
                 SavedRow(brew: brew)
+                    .accessibilityLabel(Text(brew.name))
             }
         }
     }

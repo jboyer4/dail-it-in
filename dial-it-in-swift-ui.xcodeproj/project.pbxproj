@@ -17,6 +17,8 @@
 		3C756DC12933E9E100661FBB /* SavedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C756DC02933E9E100661FBB /* SavedRow.swift */; };
 		3C756DC32933EAB600661FBB /* savedBrews.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C756DC22933EAB600661FBB /* savedBrews.json */; };
 		3C756DC629451D7100661FBB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C756DC529451D7000661FBB /* DetailView.swift */; };
+		3C756DC82949308B00661FBB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C756DC72949308A00661FBB /* ImagePicker.swift */; };
+		3C756DCA2949388F00661FBB /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C756DC92949388E00661FBB /* ImageView.swift */; };
 		3CF137DA2916F7B8006F4E52 /* dial_it_in_swift_uiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF137D92916F7B8006F4E52 /* dial_it_in_swift_uiApp.swift */; };
 		3CF137DC2916F7B8006F4E52 /* Entrypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF137DB2916F7B8006F4E52 /* Entrypoint.swift */; };
 		3CF137DE2916F7BF006F4E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CF137DD2916F7BF006F4E52 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		3C756DC22933EAB600661FBB /* savedBrews.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = savedBrews.json; sourceTree = "<group>"; };
 		3C756DC42945151C00661FBB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3C756DC529451D7000661FBB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		3C756DC72949308A00661FBB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3C756DC92949388E00661FBB /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		3CF137D62916F7B8006F4E52 /* dial-it-in-swift-ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dial-it-in-swift-ui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF137D92916F7B8006F4E52 /* dial_it_in_swift_uiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dial_it_in_swift_uiApp.swift; sourceTree = "<group>"; };
 		3CF137DB2916F7B8006F4E52 /* Entrypoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrypoint.swift; sourceTree = "<group>"; };
@@ -128,8 +132,10 @@
 				3C01642F293170A9004A632C /* TimerView.swift */,
 				3C756DC02933E9E100661FBB /* SavedRow.swift */,
 				3C756DC529451D7000661FBB /* DetailView.swift */,
+				3C756DC92949388E00661FBB /* ImageView.swift */,
 				3CF137DF2916F7BF006F4E52 /* Preview Content */,
 				3C756DC22933EAB600661FBB /* savedBrews.json */,
+				3C756DC72949308A00661FBB /* ImagePicker.swift */,
 			);
 			path = "dial-it-in-swift-ui";
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				3CF137DC2916F7B8006F4E52 /* Entrypoint.swift in Sources */,
 				3C0164332931712C004A632C /* Colors.swift in Sources */,
 				3C756DC629451D7100661FBB /* DetailView.swift in Sources */,
+				3C756DCA2949388F00661FBB /* ImageView.swift in Sources */,
 				3C016430293170A9004A632C /* TimerPage.swift in Sources */,
 				3C016431293170A9004A632C /* TimerView.swift in Sources */,
 				3C3CAB252931805C00A01BED /* BrewPage.swift in Sources */,
@@ -301,6 +308,7 @@
 				3CF137DA2916F7B8006F4E52 /* dial_it_in_swift_uiApp.swift in Sources */,
 				3C3CAB27293181CB00A01BED /* BrewModel.swift in Sources */,
 				3C756DBF2933E9A900661FBB /* SavedList.swift in Sources */,
+				3C756DC82949308B00661FBB /* ImagePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ struct SavePage: View {
     @ObservedObject var currentBrew: BrewModel
     @State private var showPopup: Bool = false
     @State private var alertText: String = ""
+    
     func getRatio() -> Text{
         if let yieldNum = Double(currentBrew.yield.value) {
             if let doseNum = Double(currentBrew.dose.value){
@@ -35,7 +36,7 @@ struct SavePage: View {
             Image("shots")
                 .resizable()
                 .scaledToFit()
-                .frame(minWidth: .infinity, alignment: .top)
+                .frame(alignment: .top)
                 .padding([.bottom], 20)
 
             VStack{
@@ -90,6 +91,14 @@ struct SavePage: View {
                     Text("Time:")
                         .foregroundColor(.white)
                     Text(String(format: "%.2f", currentBrew.time))
+                        .foregroundColor(.white)
+                    Spacer()
+                }
+                .padding()
+                HStack{
+                    Text("Notes:")
+                        .foregroundColor(.white)
+                    TextField("Additional notes", text: $currentBrew.notes)
                         .foregroundColor(.white)
                     Spacer()
                 }

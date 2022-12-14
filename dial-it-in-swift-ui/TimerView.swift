@@ -19,12 +19,15 @@ struct TimerView: View {
         let play = Image(systemName: "play.circle.fill")
             .imageScale(.large)
             .foregroundStyle(.green)
+            .accessibilityLabel(Text("Start timer"))
         let stop = Image(systemName: "stop.circle.fill")
             .imageScale(.large)
             .foregroundStyle(.red)
+            .accessibilityLabel(Text("Stop Timer"))
         let reset = Image(systemName: "repeat.circle.fill")
             .imageScale(.large)
             .foregroundStyle(.black)
+            .accessibilityLabel(Text("Restart Timer"))
         HStack {
             HStack {
                 isTimerRunning ? stop : play

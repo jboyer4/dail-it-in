@@ -27,9 +27,7 @@ struct DetailView: View {
     var body: some View {
         VStack{
             HStack{
-                Image("bag")
-                    .resizable()
-                    .scaledToFit()
+                ImageView()
 
                 HStack {
                     Text(brew.name)

@@ -82,6 +82,7 @@ struct BrewPage: View {
                         .foregroundColor(.white)
                         .font(.headline)
                         .cornerRadius(10)
+                        .accessibilityLabel(Text("Continue"))
                 }
             }
         }
